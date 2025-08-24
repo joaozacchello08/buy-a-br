@@ -1,0 +1,105 @@
+:root {
+  --background-card-color: #1a1a1a;
+  --text-primary-color: #fff;
+  --rarity-galaxy-color: #00f;
+  --price-color: #0f0;
+}
+
+.brainrot-card {
+  /*
+    Define a largura e a altura da carta para um visual consistente
+    e adiciona bordas arredondadas e uma sombra.
+  */
+  width: 200px;
+  height: 300px;
+  background-color: var(--background-card-color);
+  color: var(--text-primary-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  /*
+    Usa Flexbox para organizar o conteúdo da carta em uma coluna,
+    com os itens distribuídos de forma homogênea.
+  */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* Adiciona uma transição suave para interações futuras */
+  transition: transform 0.3s ease-in-out;
+  
+  /* Adiciona a animação de entrada */
+  animation: fadeIn 1s ease-in-out forwards;
+  
+  /*
+    Define a opacidade inicial como 0 para a animação.
+    Será definida para 1 pelo 'forwards'.
+  */
+  opacity: 0;
+}
+
+/* Efeito de hover (opcional) */
+.brainrot-card:hover {
+  transform: translateY(-10px);
+}
+
+/*
+  Estilos para a imagem da carta.
+  Garante que a imagem se ajuste ao container
+  e tenha bordas arredondadas.
+*/
+.brainrot-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain; /* Mantém a proporção da imagem */
+  border-radius: 8px;
+}
+
+/*
+  Estilos para o nome da carta.
+  Define a fonte, margens e centraliza o texto.
+*/
+.brainrot-card h3 {
+  margin: 0.5rem 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/*
+  Estilos para o texto de raridade.
+  Centraliza o texto e garante que a cor seja a definida
+  nos dados da prop.
+*/
+.brainrot-card div {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*
+  Estilos para os preços (dinheiro por segundo e preço).
+  Organiza os dois elementos em uma linha e adiciona
+  a cor verde.
+*/
+.brainrot-card > span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/*
+  Define a animação de entrada, que gradualmente
+  mostra cada carta.
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
