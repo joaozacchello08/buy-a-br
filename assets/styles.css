@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    overflow: hidden; /* evita scroll */
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 300px;
+    background: #222;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    animation: esteira 10s linear infinite;
+    animation-fill-mode: backwards;
+}
+
+.card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+/* Animação: da esquerda (fora) → centro → direita (fora) */
+@keyframes esteira {
+    0%   { left: -220px; }                       /* entra pela esquerda */
+    50%  { left: calc(50% - 100px); }            /* fica no centro */
+    100% { left: 100vw; }                        /* sai pela direita */
+}
+
+/* Vários cards em sequência */
+.card:nth-child(1) { animation-delay: 0s; }
+.card:nth-child(2) { animation-delay: 2s; }
+.card:nth-child(3) { animation-delay: 4s; }
